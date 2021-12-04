@@ -48,7 +48,7 @@ public class RatesProcessor implements Processor {
     public Double getHighestRate(Date start, Date stop, String currency) {
         NavigableMap<Date, Map<String,Double>> range = data.subMap(start, true, stop, true);
         boolean first = true;
-        Double maxRate = 0.0;
+        Double maxRate = Double.NaN;
         for (Map.Entry<Date, Map<String,Double>> entry : range.entrySet()) {
             Double rate = getRateFromData(entry.getKey(), currency, range);
             if (!rate.isNaN()) {
